@@ -1,0 +1,7 @@
+# Example URLs for XSS testing
+# Lines starting with # are comments
+# Add one URL per line
+
+http://testphp.vulnweb.com/listproducts.php?cat=1
+http://testhtml.vulnweb.com/
+http://testasp.vulnweb.com/

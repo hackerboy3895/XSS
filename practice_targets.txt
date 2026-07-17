@@ -1,0 +1,18 @@
+# Sample targets for testing
+# These are intentionally vulnerable test sites for practice
+# Use these to learn XSS testing safely
+
+# WebGoat - OWASP's vulnerable web application
+http://localhost:8080/WebGoat/
+
+# DVWA - Damn Vulnerable Web Application
+http://localhost/dvwa/vulnerabilities/xss_r/
+
+# Mutillidae - Another vulnerable web app
+http://localhost/mutillidae/index.php?page=xss-reflected.php
+
+# HackThisSite (for educational purposes)
+https://www.hackthissite.org/
+
+# PortSwigger Web Security Academy (free labs)
+https://portswigger.net/web-security/cross-site-scripting
