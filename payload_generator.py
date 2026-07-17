@@ -7,7 +7,7 @@ Generates payloads for different contexts and frameworks
 import sys
 import base64
 import urllib.parse
-from colorama import init, Fore
+from colorama import init, Fore, Style
 
 init(autoreset=True)
 
@@ -151,7 +151,7 @@ def generate_payloads(context='html', framework='generic', encode=False):
 
 def main():
     print(f"""
-{Fore.CYAN}{Fore.BRIGHT}
+{Fore.CYAN}{Style.BRIGHT}
 ╔═══════════════════════════════════════════════════════════════╗
 ║               XSS Payload Generator                          ║
 ╚═══════════════════════════════════════════════════════════════╝

@@ -18,7 +18,7 @@ def clear_screen():
 def banner():
     clear_screen()
     print(f"""
-{Fore.CYAN}{Fore.BRIGHT}
+{Fore.CYAN}{Style.BRIGHT}
 ╔═══════════════════════════════════════════════════════════════════════════╗
 ║                                                                           ║
 ║   ███╗   ██╗███████╗██╗  ██╗██╗   ██╗███████╗                           ║
@@ -106,8 +106,8 @@ def show_reference():
     W = Fore.WHITE
     G = Fore.GREEN
     R = Fore.RED
-    B = Fore.BRIGHT
-    X = Fore.RESET
+    B = Style.BRIGHT
+    X = Style.RESET_ALL
     D = "=" * 70
 
     print(C + B)
