@@ -15,7 +15,7 @@ import base64
 import urllib.parse
 import hashlib
 from datetime import datetime
-from colorama import init, Fore, Style
+from colorama import init, Fore, Style, Back
 import requests
 from bs4 import BeautifulSoup
 import argparse
