@@ -556,6 +556,8 @@ class AdvancedXSSFramework:
     # ==================== MAIN SCANNING METHODS ====================
     def scan_url(self, url, scan_type='basic', exploitation=False):
         """Main scanning function with framework-specific testing"""
+        if not url.startswith(('http://', 'https://')):
+            url = 'http://' + url
         print(f"\n{Colors.CYAN}{'='*70}")
         print(f"[*] Scanning: {url}")
         print(f"[*] Scan Type: {scan_type.upper()}")
@@ -711,6 +713,8 @@ class AdvancedXSSFramework:
 
     def scan_for_dom_xss(self, url):
         """Scan for DOM-based XSS vulnerabilities"""
+        if not url.startswith(('http://', 'https://')):
+            url = 'http://' + url
         print(f"\n{Colors.CYAN}{'='*70}")
         print(f"[*] Scanning for DOM-Based XSS: {url}")
         print(f"{'='*70}{Colors.RESET}\n")

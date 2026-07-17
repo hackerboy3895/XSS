@@ -12,6 +12,8 @@ from colorama import init, Fore
 init(autoreset=True)
 
 def quick_scan(url):
+    if not url.startswith(('http://', 'https://')):
+        url = 'http://' + url
     print(f"\n{Fore.CYAN}[*] Quick XSS Scan: {url}{Fore.RESET}\n")
     
     payloads = [

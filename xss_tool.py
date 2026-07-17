@@ -189,6 +189,8 @@ class XSSTester:
     
     def scan_url(self, url, scan_type='basic'):
         """Main scanning function"""
+        if not url.startswith(('http://', 'https://')):
+            url = 'http://' + url
         print(f"\n{Colors.CYAN}{'='*60}")
         print(f"[*] Scanning: {url}")
         print(f"[*] Scan Type: {scan_type.upper()}")

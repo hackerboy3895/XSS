@@ -13,6 +13,8 @@ from colorama import init, Fore
 init(autoreset=True)
 
 def scan_framework(url, framework='auto'):
+    if not url.startswith(('http://', 'https://')):
+        url = 'http://' + url
     print(f"\n{Fore.CYAN}[*] Framework-Specific XSS Scanner{Fore.RESET}")
     print(f"[*] Target: {url}\n")
     
